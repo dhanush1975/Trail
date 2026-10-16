@@ -54,6 +54,10 @@ const STYLES = `
   .erp-hero h1 { margin: 0; font-size: clamp(38px, 6.5vw, 58px); line-height: 1.05; font-weight: 700; letter-spacing: -0.035em; }
   .erp-grad { background: linear-gradient(90deg, #6c6af8, #9c9bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .erp-lead { margin: 0; max-width: 560px; font-size: 18px; line-height: 1.55; color: #5a5c6e; }
+  .erp-section { width: 100%; display: flex; flex-direction: column; gap: 18px; }
+  .erp-section-head { text-align: center; }
+  .erp-section-head h2 { margin: 0 0 6px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .erp-section-head p { margin: 0; font-size: 15px; line-height: 1.55; color: #5a5c6e; }
   .erp-card { box-sizing: border-box; width: 100%; background: #fff; border-radius: 18px; padding: 24px 20px; box-shadow: 0 10px 40px rgba(60,60,140,.08); display: flex; flex-direction: column; gap: 20px; }
   .erp-field { display: flex; flex-direction: column; gap: 8px; }
   .erp-field label { font-size: 13px; font-weight: 600; }
@@ -88,7 +92,7 @@ export function EventRsvpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [interest, setInterest] = useState(NEEDS[0]);
+  const [interest, setInterest] = useState("");
   const [notes, setNotes] = useState("");
 
   const [formError, setFormError] = useState("");
@@ -123,7 +127,7 @@ export function EventRsvpPage() {
   }, [eventId]);
 
   const resetForm = () => {
-    setName(""); setEmail(""); setPhone(""); setInterest(NEEDS[0]); setNotes("");
+    setName(""); setEmail(""); setPhone(""); setInterest(""); setNotes("");
     setStatus("form");
   };
 
@@ -237,10 +241,15 @@ export function EventRsvpPage() {
             <>
               <div className="erp-hero">
                 <span className="erp-pill">Meet CoreMentra{event ? ` at ${event.name}` : " at the Event"}</span>
-                <h1>Tell Us About <span className="erp-grad">Your Goals</span></h1>
-                <p className="erp-lead">Great to meet you here</p>
+                <h1>Glad You Were Here at <span className="erp-grad">{event?.name || "the Event"}</span>!</h1>
+                <p className="erp-lead">Thank you for joining us. Your feedback helps us make every event more valuable.</p>
               </div>
 
+              <div className="erp-section">
+              <div className="erp-section-head">
+                <h2>Let's Connect</h2>
+                <p>Book a free one-on-one session at a time that fits your schedule.</p>
+              </div>
               <form onSubmit={handleDetailsSubmit} className="erp-card">
                 <div className="erp-field">
                   <label htmlFor="f-name">Full Name<span className="erp-req">*</span></label>
@@ -257,7 +266,8 @@ export function EventRsvpPage() {
                 <div className="erp-field">
                   <label htmlFor="f-interest">Interested In</label>
                   <select className="erp-input" id="f-interest" value={interest} onChange={e => setInterest(e.target.value)}>
-                    {NEEDS.map(i => <option key={i}>{i}</option>)}
+                    <option value="">Select a topic</option>
+                    {NEEDS.slice(1).map(i => <option key={i}>{i}</option>)}
                   </select>
                 </div>
                 <div className="erp-field">
@@ -270,6 +280,7 @@ export function EventRsvpPage() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
                 </button>
               </form>
+              </div>
             </>
           )}
 

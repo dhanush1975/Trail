@@ -126,5 +126,10 @@ export function optionsFor(field: FieldDef, db: Db, agents: Agent[], record?: an
     }
     return base.concat(list.map((r: any) => ({ v: r.id, l: r.name || r.subject })));
   }
-  return (field.options || []).map(o => ({ v: o, l: o }));
+  const opts = field.options || [];
+  // Keep a saved value that's no longer in the list (e.g. an older "need")
+  // selectable, so opening the record doesn't silently swap it out.
+  const current = record?.[field.k];
+  const all = current && !opts.includes(current) ? [current, ...opts] : opts;
+  return all.map(o => ({ v: o, l: o }));
 }

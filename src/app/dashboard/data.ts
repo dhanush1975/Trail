@@ -9,7 +9,7 @@ export const STAGE_TITLES: Record<Stage, string> = {
   CONVERTED: "Converted",
   "NOT INTERESTED": "Not interested",
 };
-export const NEEDS = ["Not captured yet", "Estate Planning", "Life Insurance", "Health / Disability", "Family Protection", "College", "Retirement", "Tax-Free Income", "IRA / 401(k)", "Risk Protection"];
+export const NEEDS = ["Not captured yet", "Professional Business Opportunity", "Will and Trust Planning", "High Net Worth Estate Planning", "Tax Free Legacy Transfer", "Tax Free Retirement Planning", "401K Rollover", "Protect IRA/401K From Market Risk", "Kids College Savings Plan", "Term & Cash Value Life Insurance", "Guaranteed Lifetime Income Annuity", "Long Term Care & Living Benefits"];
 export const SOURCES = ["Not captured yet", "Event / Workshop", "Friend / Relative", "Met in person", "Business Associate", "Booth", "Referral", "Phone / inbound call", "Social media"];
 export const AGENT_NAMES = ["Marcus Reyes", "Dana Whitfield", "Priya Shah"];
 export const REGIONS = ["North", "South", "East", "West", "Central"];

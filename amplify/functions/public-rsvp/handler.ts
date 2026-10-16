@@ -11,7 +11,7 @@ const client = generateClient<Schema>();
 
 // Mirrors NEEDS in src/app/dashboard/data.ts — the only values the public
 // form's "Interested In" dropdown can produce.
-const NEEDS = ['Not captured yet', 'Estate Planning', 'Life Insurance', 'Health / Disability', 'Family Protection', 'College', 'Retirement', 'Tax-Free Income', 'IRA / 401(k)', 'Risk Protection'];
+const NEEDS = ['Not captured yet', 'Professional Business Opportunity', 'Will and Trust Planning', 'High Net Worth Estate Planning', 'Tax Free Legacy Transfer', 'Tax Free Retirement Planning', '401K Rollover', 'Protect IRA/401K From Market Risk', 'Kids College Savings Plan', 'Term & Cash Value Life Insurance', 'Guaranteed Lifetime Income Annuity', 'Long Term Care & Living Benefits'];
 
 const ID_RE = /^[A-Za-z0-9_-]{1,64}$/;
 // Letters (any script), spaces and the punctuation real names use. No
